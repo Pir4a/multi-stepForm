@@ -12,6 +12,9 @@ type FormData = {
   email: string
   phone: string
   plan: string
+  planOne: any
+  planTwo: any
+  planThree: any
 }
 
 const INITIAL_DATA: FormData = {
@@ -19,6 +22,9 @@ const INITIAL_DATA: FormData = {
   email: "",
   phone: "",
   plan: "",
+  planOne: undefined,
+  planTwo: undefined,
+  planThree: undefined
 }
 
 
