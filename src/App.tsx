@@ -91,7 +91,13 @@ function App() {
   return (
     <>
     <div className='formbackground'>
-      <img src={bg}/>
+      <img src={bg}></img>
+      <div className='circlescontainer'>
+       <span className="circle one">1</span>
+       <span className="circle two">2</span>
+       <span className="circle three">3</span>
+       <span className="circle four">4</span>
+      </div>
       <div className='currentformstep'>
 
       </div>

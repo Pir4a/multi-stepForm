@@ -17,10 +17,27 @@
     src: url(../assets/fonts/Ubuntu-Regular.ttf);
 }
 
-.formbackground img {
+.formbackground {  
+   position: relative;
+   z-index: -1;
+   height: 212px;
+
+  .circlecontainer {
+        z-index: 1;
+        font-size: 1250px;
+        position: absolute;
+        top: 0;
+        right: 10px;
+    }
+    img {
+    
+        height: 100%;
+        width: 100%;
     object-fit:cover;
-    height: minmax(150px, 90%);
-    width: 100%;
+ 
+    }
+
+    
 }
 .formcontainer {
     padding: 10px;
@@ -81,7 +98,8 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            height: 90px;
+            min-height: 90px;
+            height: 10dvh;
             width: 100%;
             display: flex;
             align-items: center;
