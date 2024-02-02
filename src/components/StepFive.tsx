@@ -11,7 +11,6 @@ export function StepFive(){
             We hope you have fun using our platform.If your ever need support, please feel
             free to mail us at support@loremgaming.com.
         </p>
-        {/* some logic */}
     </>
     )
 }
