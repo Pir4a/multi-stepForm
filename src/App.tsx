@@ -6,17 +6,18 @@ import { StepOne } from './components/StepOne'
 import { StepThree } from './components/StepThree'
 import { StepTwo } from './components/StepTwo'
 import { useMultistepForm } from './useMultiStepForm'
+import bg from "../assets/images/bg-sidebar-mobile.svg"
 
 export const planOptions = {
-  arcadeplan: {
+  Arcade: {
     monthly: 9,
     yearly: 90,
   },
-  advancedplan: {
+  Advanced: {
     monthly: 12,
     yearly: 120,
   },
-  proplan: {
+  Pro: {
     monthly: 15,
     yearly: 150,
   },
@@ -39,7 +40,7 @@ type FormData = {
   name: string
   email: string
   phone: string
-  plan: "arcadeplan" | "advancedplan" | "proplan"
+  plan: "Arcade" | "Advanced" | "Pro"
   planOne: any
   planTwo: any
   planThree: any
@@ -53,7 +54,7 @@ const INITIAL_DATA: FormData = {
   name: '',
   email: "",
   phone: "",
-  plan: "advancedplan",
+  plan: "Advanced",
   planOne: undefined,
   planTwo: undefined,
   planThree: undefined,
@@ -73,13 +74,13 @@ function App() {
   }
 
 
-  const {steps, step, currentStepIndex, isFirstStep, back,next, isLastStep, isSecondToLastStep } =
+  const {step, isFirstStep, back,next,isLastStep, isSecondToLastStep } =
    useMultistepForm([
     <StepOne {...data} updateFields={updateFields}/>,
     <StepTwo {...data} updateFields={updateFields}/>,
     <StepThree {...data} updateFields={updateFields}/>,
     <StepFour {...data} updateFields={updateFields}/>,
-    <StepFive {...data} updateFields={updateFields}/>,
+    <StepFive/>,
    ])
 
    function onSubmit(e: FormEvent){
@@ -90,6 +91,7 @@ function App() {
   return (
     <>
     <div className='formbackground'>
+      <img src={bg}/>
       <div className='currentformstep'>
 
       </div>
@@ -101,12 +103,13 @@ function App() {
     
     <div className='buttonscontainer'
     >
+      {isFirstStep ?(<button className='none'></button>) : "" }
       {isLastStep ? "" : !isFirstStep && (
-      <button type="button" onClick={back}>
+      <button type="button" onClick={back} className='prevbtn'>
         Go Back
       </button>
       )}
-      <button type="submit">
+      <button type="submit" className='nextbtn'>
         {isLastStep ? "" : isSecondToLastStep ? "Confirm" : "Next Step"}
       </button>
       

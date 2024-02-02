@@ -2,4 +2,108 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+   
+}
+@font-face {
+    font-family: FontBold;
+    src: url(../assets/fonts/Ubuntu-Bold.ttf);
+}
+@font-face {
+    font-family: FontMed;
+    src: url(../assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+    font-family: FontReg;
+    src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+
+.formbackground img {
+    object-fit:cover;
+    height: minmax(150px, 90%);
+    width: 100%;
+}
+.formcontainer {
+    padding: 10px;
+    height: 67dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EEF5FF;
+
+    form {
+        margin-top: -100px;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: white;
+        display: flex;
+        justify-content:flex-start;
+        align-items: flex-start;
+        gap: 15px;
+        width: 95%;
+        height: 450px;
+        flex-direction: column;
+
+        h1 {
+            font-family: FontBold;
+            color: #062552;
+        }
+        p {
+            max-width: 30ch;
+            font-family: FontReg;
+            color:#A7A8AF;
+            font-size: 1.25rem;
+            line-height: 30px;
+        }
+        input{
+            border-radius: 5px;
+            border: 1px #a7a8af52 solid;
+            font-family: FontMed;
+            font-size: 18px;
+            padding: 10px;
+            width: 90%;
+            max-width: 500px;;
+            height: 50px;
+            color:#75758B;
+            
+            &::placeholder {
+                color:#75758bb4;
+                font-family: FontBold;
+            }
+        }
+        
+        label {
+            margin-bottom: -10px;
+            color: #405471;
+            font-family: FontMed;
+            letter-spacing: -1px;
+        }
+        .buttonscontainer {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 90px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: none;
+            background-color: white;
+            
+            padding: 20px;
+
+            .none {
+                z-index: -1000;
+            }
+            button {
+                height: 50px;
+                width: 120px;
+                border: none;
+                border-radius: 5px;
+                background-color: #00275E;
+                color: white;
+                font-family: FontMed;
+                font-size: 17px;
+            }
+        }
+    }
 }

@@ -2,7 +2,7 @@ import { planOptions } from "../App"
 
 type PlanData = {
     month: boolean
-    plan: "arcadeplan" | "advancedplan" | "proplan"
+    plan: "Arcade" | "Advanced" | "Pro"
     email: string
     phone: string
     isOnline: boolean

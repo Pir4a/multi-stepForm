@@ -8,7 +8,7 @@ import { planOptions } from '../App'
 type PlanData = {
     
     month: boolean
-    plan: "arcadeplan" | "advancedplan" | "proplan"
+    plan: "Arcade" | "Advanced" | "Pro"
     email: string
     phone: string
 }
@@ -31,45 +31,45 @@ export function StepTwo({plan, updateFields, month}: PlanFormProps){
         <p>You have the option of monthly or yearly billing.</p>
         <input 
             type='radio' 
-            checked={plan === "arcadeplan"}
+            checked={plan === "Arcade"}
             className="plan"
-            onChange={() => updateFields({plan: "arcadeplan"})}
+            onChange={() => updateFields({plan: "Arcade"})}
          />   
             <img src={arcade} alt='image of the arcade plan'/>
             <div>
             <h2>Arcade</h2>
-            <p>{month ? `$${planOptions.arcadeplan.monthly}` : `$${planOptions.arcadeplan.yearly}`}</p>
+            <p>{month ? `$${planOptions.Arcade.monthly}` : `$${planOptions.Arcade.yearly}`}</p>
             <span>{month ? "" : "2 months free"}</span>
             </div>
         
         <input 
            type='radio'
-           checked={plan === "advancedplan"}
+           checked={plan === "Advanced"}
            className="plan"
-           onChange={() => updateFields({plan: "advancedplan"})}
+           onChange={() => updateFields({plan: "Advanced"})}
         />
           
             <img src={advanced} alt='image of the advanced plan'/>
             <div>
             <h2>Advanced</h2>
-            <p>{month ? `$${planOptions.advancedplan.monthly}` : `$${planOptions.advancedplan.yearly}`}</p>
+            <p>{month ? `$${planOptions.Advanced.monthly}` : `$${planOptions.Advanced.yearly}`}</p>
             <span>{month ? "" : "2 months free"}</span>
             </div>
        
         <input 
           type='radio' 
-          checked={plan === "proplan"}
+          checked={plan === "Pro"}
           className="plan" 
-          onChange={() => updateFields({plan: "proplan"})}
+          onChange={() => updateFields({plan: "Pro"})}
          />
         
             <img src={pro} alt='image of the pro plan'/>
             <div>
             <h2>Pro</h2>
-            <p>{month ? `$${planOptions.proplan.monthly}` : `$${planOptions.proplan.yearly}`}</p>
+            <p>{month ? `$${planOptions.Pro.monthly}` : `$${planOptions.Pro.yearly}`}</p>
             <span>{month ? "" : "2 months free"}</span>
             </div>
-        <input/>
+        
         <div className='monthly-or-yearly'>
             <h3>Monthly</h3>
                 <input
