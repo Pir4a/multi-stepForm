@@ -1,0 +1,54 @@
+.gridcontainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 1;
+  grid-gap: 15px;
+  background-color: white;
+
+  .plancontainer {
+    position: relative;
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+
+    h2 {
+      font-size: 20px;
+      font-family: FontMed;
+      color: #263958;
+    }
+
+    p {
+      font-family: FontMed;
+      font-size: 18px;
+    }
+    img {
+      margin-left: 20px;
+      width: 50px;
+    }
+  }
+
+  .plan {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    &:focus {
+      border: 2px solid #544c95;
+    }
+  }
+}
+.monthly-or-yearly {
+  background-color: red;
+  height: 100px;
+  width: 120%;
+  margin-left: -10%;
+}

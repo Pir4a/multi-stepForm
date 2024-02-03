@@ -1,11 +1,11 @@
-import { FormEvent, useState } from 'react'
-import './App.scss'
-import { StepFive } from './components/StepFive'
-import { StepFour } from './components/StepFour'
-import { StepOne } from './components/StepOne'
-import { StepThree } from './components/StepThree'
-import { StepTwo } from './components/StepTwo'
-import { useMultistepForm } from './useMultiStepForm'
+import { FormEvent, useState } from "react"
+import "./App.scss"
+import { StepFive } from "./components/StepFive"
+import { StepFour } from "./components/StepFour"
+import { StepOne } from "./components/StepOne"
+import { StepThree } from "./components/StepThree"
+import { StepTwo } from "./components/StepTwo"
+import { useMultistepForm } from "./useMultiStepForm"
 import bg from "../assets/images/bg-sidebar-mobile.svg"
 
 export const planOptions = {
@@ -33,8 +33,7 @@ export const planOptions = {
     monthly: 2,
     yearly: 20,
   },
-};
-
+}
 
 type FormData = {
   name: string
@@ -51,7 +50,7 @@ type FormData = {
 }
 
 const INITIAL_DATA: FormData = {
-  name: '',
+  name: "",
   email: "",
   phone: "",
   plan: "Advanced",
@@ -64,65 +63,83 @@ const INITIAL_DATA: FormData = {
   isCustomizable: false,
 }
 
-
 function App() {
   const [data, setData] = useState(INITIAL_DATA)
-  function updateFields(fields: Partial<FormData>){
-    setData(prev =>{
-      return{...prev, ...fields}
+  function updateFields(fields: Partial<FormData>) {
+    setData((prev) => {
+      return { ...prev, ...fields }
     })
   }
 
+  const {
+    step,
+    currentStepIndex,
+    isFirstStep,
+    back,
+    next,
+    isLastStep,
+    isSecondToLastStep,
+  } = useMultistepForm([
+    <StepOne {...data} updateFields={updateFields} />,
+    <StepTwo {...data} updateFields={updateFields} />,
+    <StepThree {...data} updateFields={updateFields} />,
+    <StepFour {...data} updateFields={updateFields} />,
+    <StepFive />,
+  ])
 
-  const {step, isFirstStep, back,next,isLastStep, isSecondToLastStep } =
-   useMultistepForm([
-    <StepOne {...data} updateFields={updateFields}/>,
-    <StepTwo {...data} updateFields={updateFields}/>,
-    <StepThree {...data} updateFields={updateFields}/>,
-    <StepFour {...data} updateFields={updateFields}/>,
-    <StepFive/>,
-   ])
-
-   function onSubmit(e: FormEvent){
+  function onSubmit(e: FormEvent) {
     e.preventDefault()
     next()
-   }
+  }
 
   return (
     <>
-    <div className='formbackground'>
-      <img src={bg}></img>
-      
-      <div className='currentformstep'>
+      <div className="formbackground">
+        <img src={bg}></img>
 
+        <div className="currentformstep"></div>
       </div>
-    </div>
-    <div className='formcontainer'>
-    <div className='circlescontainer'>
-       <span className="circle one">1</span>
-       <span className="circle two">2</span>
-       <span className="circle three">3</span>
-       <span className="circle four">4</span>
+      <div className="formcontainer">
+        <div className="circlescontainer">
+          {currentStepIndex == 0 ? (
+            <div className="circle active">1</div>
+          ) : (
+            <div className="circle">1</div>
+          )}
+          {currentStepIndex == 1 ? (
+            <div className="circle active">2</div>
+          ) : (
+            <div className="circle">2</div>
+          )}
+          {currentStepIndex == 2 ? (
+            <div className="circle active">3</div>
+          ) : (
+            <div className="circle">3</div>
+          )}
+          {currentStepIndex == 3 ? (
+            <div className="circle active">4</div>
+          ) : (
+            <div className="circle">4</div>
+          )}
+        </div>
+        <form onSubmit={onSubmit}>
+          {step}
+
+          <div className="buttonscontainer">
+            {isFirstStep ? <button className="none"></button> : ""}
+            {isLastStep
+              ? ""
+              : !isFirstStep && (
+                  <button type="button" onClick={back} className="prevbtn">
+                    Go Back
+                  </button>
+                )}
+            <button type="submit" className="nextbtn">
+              {isLastStep ? "" : isSecondToLastStep ? "Confirm" : "Next Step"}
+            </button>
+          </div>
+        </form>
       </div>
-      <form onSubmit={onSubmit}>
-        {step}
-     
-    
-    <div className='buttonscontainer'
-    >
-      {isFirstStep ?(<button className='none'></button>) : "" }
-      {isLastStep ? "" : !isFirstStep && (
-      <button type="button" onClick={back} className='prevbtn'>
-        Go Back
-      </button>
-      )}
-      <button type="submit" className='nextbtn'>
-        {isLastStep ? "" : isSecondToLastStep ? "Confirm" : "Next Step"}
-      </button>
-      
-      </div>
-      </form>
-    </div>
     </>
   )
 }
