@@ -40,7 +40,7 @@ export function StepTwo({ plan, updateFields, month }: PlanFormProps) {
                 ? `$${planOptions.Arcade.monthly}/mo`
                 : `$${planOptions.Arcade.yearly}/yr`}
             </p>
-            <span>{month ? "" : "2 months free"}</span>
+            <p className="free">{month ? "" : "2 months free"}</p>
           </div>
         </div>
 
@@ -60,7 +60,7 @@ export function StepTwo({ plan, updateFields, month }: PlanFormProps) {
                 ? `$${planOptions.Advanced.monthly}/mo`
                 : `$${planOptions.Advanced.yearly}/yr`}
             </p>
-            <span>{month ? "" : "2 months free"}</span>
+            <p className="free">{month ? "" : "2 months free"}</p>
           </div>
         </div>
 
@@ -80,19 +80,22 @@ export function StepTwo({ plan, updateFields, month }: PlanFormProps) {
                 ? `$${planOptions.Pro.monthly}/mo`
                 : `$${planOptions.Pro.yearly}/yr`}
             </p>
-            <span>{month ? "" : "2 months free"}</span>
+            <p className="free">{month ? "" : "2 months free"}</p>
           </div>
         </div>
-      </div>
-
-      <div className="monthly-or-yearly">
-        <h3>Monthly</h3>
-        <input
-          type="checkbox"
-          name="planmonth"
-          onChange={(e) => updateFields({ month: e.target.checked })}
-        />
-        <h3>Yearly</h3>
+        <div className="monthly-or-yearly">
+          {month ? <h3>Yearly</h3> : <h3 className="activeslider">Yearly</h3>}
+          <label className="switch">
+            <input
+              className="slider"
+              type="checkbox"
+              name="planmonth"
+              onChange={(e) => updateFields({ month: e.target.checked })}
+            />
+            <span className="sliderspan"></span>
+          </label>
+          {month ? <h3 className="activeslider">Monthly</h3> : <h3>Monthly</h3>}
+        </div>
       </div>
     </>
   )

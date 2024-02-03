@@ -31,7 +31,8 @@
 }
 .formcontainer {
   padding: 10px;
-  height: 67dvh;
+  min-height: 67dvh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +79,8 @@
     align-items: flex-start;
     gap: 15px;
     width: 95%;
-    height: 450px;
+    min-height: 450px;
+    height: auto;
     flex-direction: column;
 
     h1 {
@@ -142,6 +144,10 @@
         color: white;
         font-family: FontMed;
         font-size: 17px;
+      }
+      .prevbtn {
+        background-color: transparent;
+        color: #acadb2;
       }
     }
   }
