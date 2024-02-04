@@ -48,7 +48,7 @@
     height: 100%;
     border-radius: 10px;
 
-    &:focus {
+    &:focus-within {
       border: 2px solid #544c95;
     }
   }

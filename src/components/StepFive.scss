@@ -17,3 +17,9 @@
     max-width: 37ch;
   }
 }
+@media (width<450px) {
+  .stepfive {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
