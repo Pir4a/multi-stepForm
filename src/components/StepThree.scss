@@ -50,7 +50,7 @@
   font-family: FontMed;
   font-size: 15px;
 }
-@media (width<500px) {
+@media (width<425px) {
   .checkboxgrid {
     height: 150%;
     display: grid;
@@ -65,7 +65,7 @@
       justify-content: space-between;
       align-items: center;
       min-width: none;
-      min-height: 70px;
+      max-height: 80px;
       min-width: 200px;
       gap: 10px;
 
