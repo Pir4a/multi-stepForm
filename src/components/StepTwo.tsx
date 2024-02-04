@@ -25,7 +25,11 @@ export function StepTwo({ plan, updateFields, month }: PlanFormProps) {
       </div>
 
       <div className="gridcontainer">
-        <div className="plancontainer">
+        <div
+          className={
+            plan === "Arcade" ? "plancontainer planactive" : "plancontainer"
+          }
+        >
           <input
             type="radio"
             checked={plan === "Arcade"}
@@ -44,7 +48,11 @@ export function StepTwo({ plan, updateFields, month }: PlanFormProps) {
           </div>
         </div>
 
-        <div className="plancontainer">
+        <div
+          className={
+            plan === "Advanced" ? "plancontainer planactive" : "plancontainer"
+          }
+        >
           <input
             type="radio"
             checked={plan === "Advanced"}
@@ -64,7 +72,11 @@ export function StepTwo({ plan, updateFields, month }: PlanFormProps) {
           </div>
         </div>
 
-        <div className="plancontainer">
+        <div
+          className={
+            plan === "Pro" ? "plancontainer planactive" : "plancontainer"
+          }
+        >
           <input
             type="radio"
             checked={plan === "Pro"}
