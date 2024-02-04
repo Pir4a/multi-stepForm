@@ -1,5 +1,4 @@
 .checkboxgrid {
-  width: 100%;
   height: 150%;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -8,11 +7,13 @@
   background-color: white;
 
   .addon {
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
-    width: 330px;
+    min-width: none;
+    min-height: 70px;
+    min-width: 200px;
     gap: 20px;
 
     .text {
@@ -39,6 +40,50 @@
   }
 }
 
-.addon + input[type="checkbox"]:checked {
-  outline: 28px solid #1c6ea4;
+.active {
+  outline: 2px solid #625ca9;
+  border-radius: 10px;
+}
+
+.money {
+  color: #8d82dd;
+  font-family: FontMed;
+  font-size: 15px;
+}
+@media (width<360px) {
+  .checkboxgrid {
+    height: 150%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1;
+    grid-gap: 15px;
+    background-color: white;
+
+    .addon {
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: none;
+      min-height: 70px;
+      min-width: 200px;
+      gap: 10px;
+
+      .text {
+        width: 70%;
+
+        h2 {
+          font-family: FontBold;
+          font-size: 16px;
+          color: #223950;
+        }
+        p {
+          line-height: 20px;
+          font-family: FontMed;
+          font-size: 13px;
+          color: #c1c0c4;
+        }
+      }
+    }
+  }
 }

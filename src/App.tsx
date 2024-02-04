@@ -134,7 +134,7 @@ function App() {
                     Go Back
                   </button>
                 )}
-            <button type="submit" className="nextbtn">
+            <button type="submit" className={isLastStep ? "none" : "nextbtn"}>
               {isLastStep ? "" : isSecondToLastStep ? "Confirm" : "Next Step"}
             </button>
           </div>

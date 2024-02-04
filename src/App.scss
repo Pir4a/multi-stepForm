@@ -79,7 +79,7 @@
     align-items: flex-start;
     gap: 15px;
     width: 95%;
-    min-height: 450px;
+    min-height: 300px;
     height: auto;
     flex-direction: column;
 
@@ -149,6 +149,35 @@
         background-color: transparent;
         color: #acadb2;
       }
+    }
+  }
+}
+@media (width<356px) {
+  form {
+    margin-top: -100px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+    width: 95%;
+    min-height: 450px;
+    height: auto;
+    flex-direction: column;
+
+    h1 {
+      font-size: 20px;
+      font-family: FontBold;
+      color: #062552;
+    }
+    p {
+      max-width: 30ch;
+      font-family: FontReg;
+      color: #a7a8af;
+      font-size: 15px;
+      line-height: 30px;
     }
   }
 }

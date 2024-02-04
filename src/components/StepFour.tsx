@@ -1,4 +1,5 @@
 import { planOptions } from "../App"
+import "./StepFour.scss"
 
 type PlanData = {
   isOnline: boolean
@@ -40,59 +41,70 @@ export function StepFour({
     <>
       <h1>Finishing up</h1>
       <p>Double-check everything looks OK before confirming.</p>
-      <div>
-        <div>
+      <div className="servicecontainer">
+        <div className="plantype">
           <span>
-            {plan}
-            {!month ? "(Yearly)" : "(Monthly)"}
-            change
+            <h3>
+              {plan}
+              {!month ? "  (Yearly)" : "  (Monthly)"}
+            </h3>
+            <p
+              className="underlined"
+              onClick={() => updateFields({ month: !month })}
+            >
+              Change
+            </p>
           </span>
-          <span>
-            $
-            {month
-              ? `${planOptions[plan].monthly}/mo`
-              : `${planOptions[plan].yearly}/yr`}
-            <p onClick={() => updateFields({ month: !month })}>Change</p>
+          <span className="deepblue">
+            <p>
+              $
+              {month
+                ? `${planOptions[plan].monthly}/mo`
+                : `${planOptions[plan].yearly}/yr`}{" "}
+            </p>
           </span>
         </div>
-        <div>
-          <div>
-            <span>{isOnline ? `Online service` : ""}</span>
-            <span>
+        <hr />
+        <div className="addoncontainer">
+          <div className={isOnline ? "plantype" : ""}>
+            <h3>{isOnline ? `Online service` : ""}</h3>
+            <p>
               {!isOnline
                 ? ""
                 : month
-                ? `$${planOptions.onlineServices.monthly}/mo`
-                : `$${planOptions.onlineServices.yearly}/yr`}
-            </span>
+                ? `+$${planOptions.onlineServices.monthly}/mo`
+                : `+$${planOptions.onlineServices.yearly}/yr`}
+            </p>
           </div>
-          <div>
-            <span>{isLarger ? `Larger storage` : ""}</span>
-            <span>
+          <div className={isLarger ? "plantype" : ""}>
+            <h3>{isLarger ? `Larger storage` : ""}</h3>
+            <p>
               {!isLarger
                 ? ""
                 : month
-                ? `$${planOptions.largerStorage.monthly}/mo`
-                : `$${planOptions.largerStorage.yearly}/yr`}
-            </span>
+                ? `+$${planOptions.largerStorage.monthly}/mo`
+                : `+$${planOptions.largerStorage.yearly}/yr`}
+            </p>
           </div>
-          <div>
-            <span>{isCustomizable ? `Customizable profile` : ""}</span>
-            <span>
+          <div className={isCustomizable ? "plantype" : ""}>
+            <h3>{isCustomizable ? `Customizable profile` : ""}</h3>
+            <p>
               {!isCustomizable
                 ? ""
                 : month
-                ? `$${planOptions.customizableProfile.monthly}/mo`
-                : `$${planOptions.customizableProfile.yearly}/yr`}
-            </span>
+                ? `+$${planOptions.customizableProfile.monthly}/mo`
+                : `+$${planOptions.customizableProfile.yearly}/yr`}
+            </p>
           </div>
         </div>
       </div>
-      <p>Total (per {month ? "month" : "year"})</p>
-      <span>
-        +${planTotal + addonTotal}
-        {month ? "/mo" : "/yr"}
-      </span>
+      <div className="total">
+        <h3>Total (per {month ? "month" : "year"})</h3>
+        <p className="price">
+          ${planTotal + addonTotal}
+          {month ? "/mo" : "/yr"}
+        </p>
+      </div>
     </>
   )
 }

@@ -27,7 +27,7 @@ export function StepThree({
       <h1>Pick add-ons</h1>
       <p>Add-ons help enhance your gaming experience.</p>
       <div className="checkboxgrid">
-        <div className="addon">
+        <div className={isOnline ? "addon active" : "addon"}>
           <input
             type="checkbox"
             checked={isOnline}
@@ -39,14 +39,14 @@ export function StepThree({
             <p>Access to multiplayer games</p>
           </div>
           <div>
-            <span>
+            <span className="money">
               {month
-                ? `$${planOptions.onlineServices.monthly}`
-                : `$${planOptions.onlineServices.yearly}`}
+                ? `+$${planOptions.onlineServices.monthly}/mo`
+                : `+$${planOptions.onlineServices.yearly}/yr`}
             </span>
           </div>
         </div>
-        <div className="addon">
+        <div className={isLarger ? "addon active" : "addon"}>
           <input
             type="checkbox"
             checked={isLarger}
@@ -58,14 +58,14 @@ export function StepThree({
             <p>Extra 1TB of cloud save</p>
           </div>
           <div>
-            <span>
+            <span className="money">
               {month
-                ? `$${planOptions.largerStorage.monthly}`
-                : `$${planOptions.largerStorage.yearly}`}
+                ? `+$${planOptions.largerStorage.monthly}/mo`
+                : `+$${planOptions.largerStorage.yearly}/yr`}
             </span>
           </div>
         </div>
-        <div className="addon">
+        <div className={isCustomizable ? "addon active" : "addon"}>
           <input
             type="checkbox"
             checked={isCustomizable}
@@ -77,10 +77,10 @@ export function StepThree({
             <p>Custom theme on your profile</p>
           </div>
           <div>
-            <span>
+            <span className="money">
               {month
-                ? `$${planOptions.customizableProfile.monthly}`
-                : `$${planOptions.customizableProfile.yearly}`}
+                ? `+$${planOptions.customizableProfile.monthly}/mo`
+                : `+$${planOptions.customizableProfile.yearly}/yr`}
             </span>
           </div>
         </div>
