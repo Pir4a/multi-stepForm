@@ -1,9 +1,10 @@
 .checkboxgrid {
+  padding-top: 20px;
   height: 150%;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: 1;
-  grid-gap: 15px;
+  grid-gap: 25px;
   background-color: white;
 
   .addon {
@@ -11,10 +12,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: none;
+
     min-height: 50px;
     min-width: 200px;
-    gap: 20px;
+    gap: 15px;
 
     .text {
       width: 70%;
@@ -85,5 +86,75 @@
         }
       }
     }
+  }
+}
+@media (width>700px) {
+  .stepthree {
+    padding-top: 50px;
+    .head {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .headtext {
+        padding-top: 5px;
+        max-width: none;
+        font-size: 18px;
+      }
+    }
+  }
+  .checkboxgrid {
+    height: 80%;
+    width: 600px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1;
+    grid-gap: 15px;
+    background-color: white;
+
+    .addon {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      outline: 1px solid #dbdadf;
+      border-radius: 10px;
+      height: 90px;
+      width: 90%;
+      gap: 20px;
+
+      .text {
+        width: 70%;
+        display: flex;
+        align-items: start;
+
+        flex-direction: column;
+        h2 {
+          font-family: FontBold;
+          font-size: 19px;
+          color: #223950;
+        }
+        p {
+          font-family: FontMed;
+          font-size: 15px;
+          color: #c1c0c4;
+        }
+      }
+    }
+
+    .addons {
+      width: 20px;
+    }
+  }
+
+  .active {
+    outline: 2px solid #625ca9;
+    border-radius: 10px;
+    background-color: #f8f9fe;
+  }
+
+  .money {
+    color: #8d82dd;
+    font-family: FontMed;
+    font-size: 15px;
   }
 }
