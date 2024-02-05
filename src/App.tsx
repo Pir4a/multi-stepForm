@@ -7,6 +7,7 @@ import { StepThree } from "./components/StepThree"
 import { StepTwo } from "./components/StepTwo"
 import { useMultistepForm } from "./useMultiStepForm"
 import bg from "../assets/images/bg-sidebar-mobile.svg"
+import bgdesktop from "../assets/images/bg-sidebar-desktop.svg"
 
 export const planOptions = {
   Arcade: {
@@ -94,51 +95,130 @@ function App() {
 
   return (
     <>
-      <div className="formbackground">
-        <img src={bg}></img>
+      <div className="desktopcontainer">
+        <div className="formbackground">
+          <img src={bg}></img>
 
-        <div className="currentformstep"></div>
-      </div>
-      <div className="formcontainer">
-        <div className="circlescontainer">
-          {currentStepIndex == 0 ? (
-            <div className="circle active">1</div>
-          ) : (
-            <div className="circle">1</div>
-          )}
-          {currentStepIndex == 1 ? (
-            <div className="circle active">2</div>
-          ) : (
-            <div className="circle">2</div>
-          )}
-          {currentStepIndex == 2 ? (
-            <div className="circle active">3</div>
-          ) : (
-            <div className="circle">3</div>
-          )}
-          {currentStepIndex == 3 ? (
-            <div className="circle active">4</div>
-          ) : (
-            <div className="circle">4</div>
-          )}
+          <div className="currentformstep"></div>
         </div>
-        <form onSubmit={onSubmit}>
-          {step}
-
-          <div className="buttonscontainer">
-            {isFirstStep ? <button className="none"></button> : ""}
-            {isLastStep
-              ? ""
-              : !isFirstStep && (
-                  <button type="button" onClick={back} className="prevbtn">
-                    Go Back
-                  </button>
-                )}
-            <button type="submit" className={isLastStep ? "none" : "nextbtn"}>
-              {isLastStep ? "" : isSecondToLastStep ? "Confirm" : "Next Step"}
-            </button>
+        <div className="formcontainer">
+          <div className="circlescontainer">
+            {currentStepIndex == 0 ? (
+              <div className="circle active">1</div>
+            ) : (
+              <div className="circle">1</div>
+            )}
+            {currentStepIndex == 1 ? (
+              <div className="circle active">2</div>
+            ) : (
+              <div className="circle">2</div>
+            )}
+            {currentStepIndex == 2 ? (
+              <div className="circle active">3</div>
+            ) : (
+              <div className="circle">3</div>
+            )}
+            {currentStepIndex == 3 ? (
+              <div className="circle active">4</div>
+            ) : (
+              <div className="circle">4</div>
+            )}
           </div>
-        </form>
+
+          <form onSubmit={onSubmit}>
+            <div className="formbackgrounddesktop">
+              <div className="circlescontainerdesktop">
+                {currentStepIndex == 0 ? (
+                  <div className="circleandtext">
+                    <div className="circle active">1</div>
+                    <div className="circletext">
+                      <p>STEP 1</p>
+                      <h1>YOUR INFO</h1>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="circleandtext">
+                    <div className="circle">1</div>
+                    <div className="circletext">
+                      <p>STEP 1</p>
+                      <h1>YOUR INFO</h1>
+                    </div>
+                  </div>
+                )}
+                {currentStepIndex == 1 ? (
+                  <div className="circleandtext">
+                    <div className="circle active">2</div>
+                    <div className="circletext">
+                      <p>STEP 2</p>
+                      <h1>SELECT PLAN</h1>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="circleandtext">
+                    <div className="circle">2</div>
+                    <div className="circletext">
+                      <p>STEP 2</p>
+                      <h1>SELECT PLAN</h1>
+                    </div>
+                  </div>
+                )}
+                {currentStepIndex == 2 ? (
+                  <div className="circleandtext">
+                    <div className="circle active">3</div>
+                    <div className="circletext">
+                      <p>STEP 3</p>
+                      <h1>ADD-ONS</h1>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="circleandtext">
+                    <div className="circle">3</div>
+                    <div className="circletext">
+                      <p>STEP 3</p>
+                      <h1>ADD-ONS</h1>
+                    </div>
+                  </div>
+                )}
+                {currentStepIndex == 3 ? (
+                  <div className="circleandtext">
+                    <div className="circle active">4</div>
+                    <div className="circletext">
+                      <p>STEP 4</p>
+                      <h1>SUMMARY</h1>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="circleandtext">
+                    <div className="circle">4</div>
+                    <div className="circletext">
+                      <p>STEP 4</p>
+                      <h1>SUMMARY</h1>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <img src={bgdesktop}></img>
+
+              <div className="currentformstep"></div>
+            </div>
+
+            {step}
+
+            <div className="buttonscontainer">
+              {isFirstStep ? <button className="none"></button> : ""}
+              {isLastStep
+                ? ""
+                : !isFirstStep && (
+                    <button type="button" onClick={back} className="prevbtn">
+                      Go Back
+                    </button>
+                  )}
+              <button type="submit" className={isLastStep ? "none" : "nextbtn"}>
+                {isLastStep ? "" : isSecondToLastStep ? "Confirm" : "Next Step"}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   )
