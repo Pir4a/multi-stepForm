@@ -96,9 +96,9 @@
       flex-direction: column;
       width: 100%;
       .headtext {
-        padding-top: 5px;
         max-width: none;
         font-size: 18px;
+        font-family: fontReg;
       }
     }
   }
@@ -108,7 +108,7 @@
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1;
-    grid-gap: 15px;
+    grid-gap: 25px;
     background-color: white;
 
     .addon {
@@ -121,7 +121,11 @@
       height: 90px;
       width: 90%;
       gap: 20px;
+      cursor: pointer;
 
+      input {
+        cursor: pointer;
+      }
       .text {
         width: 70%;
         display: flex;
@@ -134,7 +138,8 @@
           color: #223950;
         }
         p {
-          font-family: FontMed;
+          font-family: FontReg;
+          font-weight: 100;
           font-size: 15px;
           color: #c1c0c4;
         }

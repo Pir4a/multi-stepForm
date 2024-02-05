@@ -48,6 +48,9 @@ type FormData = {
   isOnline: boolean
   isLarger: boolean
   isCustomizable: boolean
+  isEmpty: boolean
+  isEmailEmpty: boolean
+  isPhoneEmpty: boolean
 }
 
 const INITIAL_DATA: FormData = {
@@ -62,6 +65,9 @@ const INITIAL_DATA: FormData = {
   isOnline: false,
   isLarger: false,
   isCustomizable: false,
+  isEmpty: false,
+  isEmailEmpty: false,
+  isPhoneEmpty: false,
 }
 
 function App() {
@@ -88,10 +94,39 @@ function App() {
     <StepFive />,
   ])
 
+  function checkEmpty() {
+    if (data.name == "") {
+      data.isEmpty = true
+    } else {
+      data.isEmpty = false
+    }
+    if (data.email == "") {
+      data.isEmailEmpty = true
+    } else {
+      data.isEmailEmpty = false
+    }
+    if (data.phone == "") {
+      data.isPhoneEmpty = true
+    } else {
+      data.isPhoneEmpty = false
+    }
+  }
   function onSubmit(e: FormEvent) {
     e.preventDefault()
+    console.log(data.isEmpty, data.isEmailEmpty, data.isPhoneEmpty)
+    checkEmpty()
+    setUpdate(!update)
+    if (
+      data.isEmpty === true ||
+      data.isEmailEmpty === true ||
+      data.isPhoneEmpty === true
+    ) {
+      return
+    }
     next()
   }
+
+  const [update, setUpdate] = useState(false)
 
   return (
     <>
@@ -179,7 +214,7 @@ function App() {
                     </div>
                   </div>
                 )}
-                {currentStepIndex == 3 ? (
+                {currentStepIndex == 3 || currentStepIndex == 4 ? (
                   <div className="circleandtext">
                     <div className="circle active">4</div>
                     <div className="circletext">

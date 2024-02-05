@@ -6,22 +6,45 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-  }
-  .personalinfos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 600px;
-    .infospara {
-      max-width: 120ch;
-      font-size: 18px;
+
+    .labelcontainer {
+      height: 20px;
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        margin-bottom: -11px;
+        font-size: 15px;
+        font-family: FontBold;
+      }
+    }
+
+    .personalinfos {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 600px;
+      .infospara {
+        max-width: 120ch;
+        font-size: 18px;
+      }
+    }
+    .infos {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 600px;
+      gap: 20px;
     }
   }
-  .infos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 600px;
-    gap: 20px;
+}
+.steponecontainer {
+  .labelcontainer {
+    margin-top: 10px;
+    p {
+      margin-top: 5px;
+      color: red;
+    }
   }
 }

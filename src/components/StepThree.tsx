@@ -34,65 +34,74 @@ export function StepThree({
 
         <div className="addoncontainer">
           <div className="checkboxgrid">
-            <div className={isOnline ? "addon active" : "addon"}>
-              <input
-                type="checkbox"
-                checked={isOnline}
-                className="addons"
-                onChange={(e) => updateFields({ isOnline: e.target.checked })}
-              />
-              <div className="text">
-                <h2>Online service</h2>
-                <p>Access to multiplayer games</p>
+            <label htmlFor="checkonline">
+              <div className={isOnline ? "addon active" : "addon"}>
+                <input
+                  id="checkonline"
+                  type="checkbox"
+                  checked={isOnline}
+                  className="addons"
+                  onChange={(e) => updateFields({ isOnline: e.target.checked })}
+                />
+                <div className="text">
+                  <h2>Online service</h2>
+                  <p>Access to multiplayer games</p>
+                </div>
+                <div>
+                  <span className="money">
+                    {month
+                      ? `+$${planOptions.onlineServices.monthly}/mo`
+                      : `+$${planOptions.onlineServices.yearly}/yr`}
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="money">
-                  {month
-                    ? `+$${planOptions.onlineServices.monthly}/mo`
-                    : `+$${planOptions.onlineServices.yearly}/yr`}
-                </span>
+            </label>
+            <label htmlFor="checklarger">
+              <div className={isLarger ? "addon active" : "addon"}>
+                <input
+                  id="checklarger"
+                  type="checkbox"
+                  checked={isLarger}
+                  className="addons"
+                  onChange={(e) => updateFields({ isLarger: e.target.checked })}
+                />
+                <div className="text">
+                  <h2>Larger storage</h2>
+                  <p>Extra 1TB of cloud save</p>
+                </div>
+                <div>
+                  <span className="money">
+                    {month
+                      ? `+$${planOptions.largerStorage.monthly}/mo`
+                      : `+$${planOptions.largerStorage.yearly}/yr`}
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className={isLarger ? "addon active" : "addon"}>
-              <input
-                type="checkbox"
-                checked={isLarger}
-                className="addons"
-                onChange={(e) => updateFields({ isLarger: e.target.checked })}
-              />
-              <div className="text">
-                <h2>Larger storage</h2>
-                <p>Extra 1TB of cloud save</p>
+            </label>
+            <label htmlFor="checkcustomizable">
+              <div className={isCustomizable ? "addon active" : "addon"}>
+                <input
+                  id="checkcustomizable"
+                  type="checkbox"
+                  checked={isCustomizable}
+                  className="addons"
+                  onChange={(e) =>
+                    updateFields({ isCustomizable: e.target.checked })
+                  }
+                />
+                <div className="text">
+                  <h2>Customizable profile</h2>
+                  <p>Custom theme on your profile</p>
+                </div>
+                <div>
+                  <span className="money">
+                    {month
+                      ? `+$${planOptions.customizableProfile.monthly}/mo`
+                      : `+$${planOptions.customizableProfile.yearly}/yr`}
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="money">
-                  {month
-                    ? `+$${planOptions.largerStorage.monthly}/mo`
-                    : `+$${planOptions.largerStorage.yearly}/yr`}
-                </span>
-              </div>
-            </div>
-            <div className={isCustomizable ? "addon active" : "addon"}>
-              <input
-                type="checkbox"
-                checked={isCustomizable}
-                className="addons"
-                onChange={(e) =>
-                  updateFields({ isCustomizable: e.target.checked })
-                }
-              />
-              <div className="text">
-                <h2>Customizable profile</h2>
-                <p>Custom theme on your profile</p>
-              </div>
-              <div>
-                <span className="money">
-                  {month
-                    ? `+$${planOptions.customizableProfile.monthly}/mo`
-                    : `+$${planOptions.customizableProfile.yearly}/yr`}
-                </span>
-              </div>
-            </div>
+            </label>
           </div>
         </div>
       </div>
