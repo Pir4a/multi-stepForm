@@ -1,4 +1,4 @@
-@media (width>700px) {
+@media (width>800px) {
   .steponecontainer {
     height: 80%;
     display: flex;
@@ -43,7 +43,8 @@
   .labelcontainer {
     margin-top: 10px;
     p {
-      margin-top: 5px;
+      font-size: 15px;
+      margin-top: 3px;
       color: red;
     }
   }
